@@ -29,6 +29,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = [os.environ.get('HOSTNAME')]
 
+host = os.environ.get("SITE_HOST")
+if host:
+    ALLOWED_HOSTS.append(host)
+
+
+#django-list.herokuapp.com
 # Application definition
 
 INSTALLED_APPS = [
