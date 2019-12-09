@@ -27,9 +27,14 @@ SECRET_KEY = '9l_mw**8a4!8(v0t41l42e2uvecz^!dq(0h4%9w6-()(ity3vj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get('HOSTNAME')]
+
+host = os.environ.get("SITE_HOST")
+if host:
+    ALLOWED_HOSTS.append(host)
 
 
+#django-list.herokuapp.com
 # Application definition
 
 INSTALLED_APPS = [
@@ -84,7 +89,7 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 #    }
 #}
 
-DATABASES = {'default': dj_database_url.parse("postgres://nzvaojakgwuysy:34ef386b5a26aab80bdd0961434dcf863886a8469707a552b3235e91942965e3@ec2-54-75-224-168.eu-west-1.compute.amazonaws.com:5432/d1dbgabsj95ufb")}
+DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
