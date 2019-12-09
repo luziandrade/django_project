@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 #    }
 #}
 
-DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
